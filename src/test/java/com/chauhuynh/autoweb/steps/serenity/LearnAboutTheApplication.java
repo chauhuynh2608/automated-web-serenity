@@ -19,9 +19,7 @@ public class LearnAboutTheApplication {
 	@Test 
 	public void checkCompareTitle() {
 		
-		System.setProperty("webdriver.chrome.driver", ".\\driver\\chromedriver.exe");
-		
-		WebDriver chrome = new ChromeDriver();
+		System.setProperty("webdriver.chrome.driver", ".\\driver\\chromedriver.exe");		
 		
 		driver.get("http://todomvc.com/examples/angularjs/#/");
 		
@@ -37,8 +35,6 @@ public class LearnAboutTheApplication {
 		
 		System.setProperty("webdriver.chrome.driver", ".\\driver\\chromedriver.exe");
 		
-		WebDriver chrome = new ChromeDriver();
-		
 		driver.get("http://todomvc.com/examples/angularjs/#/");
 		
 		String heading = driver.findElement(By.tagName("h1")).getText();
@@ -46,7 +42,15 @@ public class LearnAboutTheApplication {
 		String expectedheading  = "todos";
 		
 		Assert.assertEquals(heading,expectedheading);
-	}
+	}	
+	@Test
+	public void checkFooter() {
+	
+	System.setProperty("webdriver.chrome.driver", ".\\driver\\chromedriver.exe");	
+	driver.get("http://todomvc.com/examples/angularjs/#/");	
+	String footer = driver.findElement(By.xpath("//footer/p[contains(text(),'Credits')]")).getText();
+	String expectedfooter  = "Credits: Christoph Burgdorf, Eric Bidelman, Jacob Mumm and Igor Minar";
+	Assert.assertEquals(footer,expectedfooter);
+}
 
- 
 }
