@@ -25,15 +25,10 @@ public class LearnAssertApplicationInfoWithHamcrest {
 	public void checkCompareTitle() {
 
 		System.setProperty("webdriver.chrome.driver", ".\\driver\\chromedriver.exe");
-
 		driver.get("http://todomvc.com/examples/angularjs/#/");
-
 		String acutalPageTitle = driver.getTitle();
-
 		String expectedPageTitle = "AngularJS • TodoMVC";
-
 		assertThat(acutalPageTitle, is(expectedPageTitle));
-
 	}
 
 	@Test
@@ -43,18 +38,14 @@ public class LearnAssertApplicationInfoWithHamcrest {
 		driver.get("http://todomvc.com/examples/angularjs/#/");
 		String footer = driver.findElement(By.xpath("//footer/p[2]")).getText();
 		assertThat(footer, containsString("Credits"));
-
 	}
 
 	@Test
 	public void checkHeading() {
 
 		System.setProperty("webdriver.chrome.driver", ".\\driver\\chromedriver.exe");
-
 		driver.get("http://todomvc.com/examples/angularjs/#/");
-
 		String heading = driver.findElement(By.tagName("h1")).getText();
-
 		String expectedheading = "todos";
 		assertThat(heading, is(expectedheading));
 	}
