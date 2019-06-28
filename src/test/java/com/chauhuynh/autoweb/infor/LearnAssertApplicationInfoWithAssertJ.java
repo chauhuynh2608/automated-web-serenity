@@ -1,8 +1,9 @@
-package com.chauhuynh.autoweb.steps.serenity;
+package com.chauhuynh.autoweb.infor;
 
 import static org.junit.Assert.assertThat;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
@@ -19,10 +20,13 @@ public class LearnAssertApplicationInfoWithAssertJ {
 	@Managed
 	public WebDriver driver;
 
+	@Before
+	public void setup() {
+		driver.get("http://todomvc.com/examples/angularjs/#/");
+	}
+
 	@Test
 	public void checkCompareTitle() {
-
-		System.setProperty("webdriver.chrome.driver", ".\\driver\\chromedriver.exe");
 		driver.get("http://todomvc.com/examples/angularjs/#/");
 		String acutalPageTitle = driver.getTitle();
 		assertThat(acutalPageTitle.contains(acutalPageTitle));
@@ -30,8 +34,6 @@ public class LearnAssertApplicationInfoWithAssertJ {
 
 	@Test
 	public void checkHeading() {
-
-		System.setProperty("webdriver.chrome.driver", ".\\driver\\chromedriver.exe");
 		driver.get("http://todomvc.com/examples/angularjs/#/");
 		String heading = driver.findElement(By.tagName("h1")).getText();
 		assertThat(heading.contains(heading));
@@ -39,8 +41,6 @@ public class LearnAssertApplicationInfoWithAssertJ {
 
 	@Test
 	public void checkFooter() {
-
-		System.setProperty("webdriver.chrome.driver", ".\\driver\\chromedriver.exe");
 		driver.get("http://todomvc.com/examples/angularjs/#/");
 		String footer = driver.findElement(By.xpath("//footer/p[2]")).getText();
 		assertThat(footer).contains("Credits");

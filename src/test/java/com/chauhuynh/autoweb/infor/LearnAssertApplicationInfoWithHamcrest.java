@@ -1,6 +1,8 @@
-package com.chauhuynh.autoweb.steps.serenity;
+package com.chauhuynh.autoweb.infor;
 
 import org.junit.Assert;
+import org.junit.Before;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
@@ -18,14 +20,16 @@ import net.thucydides.core.annotations.Managed;
 
 @RunWith(SerenityRunner.class)
 public class LearnAssertApplicationInfoWithHamcrest {
-	@Managed 
+	@Managed
 	public WebDriver driver;
+
+	@Before
+	public void setup() {
+		driver.get("http://todomvc.com/examples/angularjs/#/");
+	}
 
 	@Test
 	public void checkCompareTitle() {
-
-		System.setProperty("webdriver.chrome.driver", ".\\driver\\chromedriver.exe");
-		driver.get("http://todomvc.com/examples/angularjs/#/");
 		String acutalPageTitle = driver.getTitle();
 		String expectedPageTitle = "AngularJS • TodoMVC";
 		assertThat(acutalPageTitle, is(expectedPageTitle));
@@ -33,9 +37,6 @@ public class LearnAssertApplicationInfoWithHamcrest {
 
 	@Test
 	public void checkHeading() {
-
-		System.setProperty("webdriver.chrome.driver", ".\\driver\\chromedriver.exe");
-		driver.get("http://todomvc.com/examples/angularjs/#/");
 		String heading = driver.findElement(By.tagName("h1")).getText();
 		String expectedheading = "todos";
 		assertThat(heading, is(expectedheading));
@@ -43,9 +44,6 @@ public class LearnAssertApplicationInfoWithHamcrest {
 
 	@Test
 	public void checkFooter() {
-
-		System.setProperty("webdriver.chrome.driver", ".\\driver\\chromedriver.exe");
-		driver.get("http://todomvc.com/examples/angularjs/#/");
 		String footer = driver.findElement(By.xpath("//footer/p[2]")).getText();
 		assertThat(footer, containsString("Credits"));
 	}
