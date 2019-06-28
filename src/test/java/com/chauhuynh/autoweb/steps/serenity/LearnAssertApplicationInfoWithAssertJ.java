@@ -1,23 +1,24 @@
 package com.chauhuynh.autoweb.steps.serenity;
 
+import static org.junit.Assert.assertThat;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static org.hamcrest.CoreMatchers.not;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.collection.IsIterableContainingInOrder.contains;
 import static org.hamcrest.core.Is.is;
-import static org.hamcrest.core.IsCollectionContaining.hasItems;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 
 @RunWith(SerenityRunner.class)
-public class LearnAssertApplicationInfoWithHamcrest {
+public class LearnAssertApplicationInfoWithAssertJ {
+
 	@Managed(driver = "chrome")
 	public WebDriver driver;
 
@@ -27,8 +28,7 @@ public class LearnAssertApplicationInfoWithHamcrest {
 		System.setProperty("webdriver.chrome.driver", ".\\driver\\chromedriver.exe");
 		driver.get("http://todomvc.com/examples/angularjs/#/");
 		String acutalPageTitle = driver.getTitle();
-		String expectedPageTitle = "AngularJS • TodoMVC";
-		assertThat(acutalPageTitle, is(expectedPageTitle));
+		assertThat(acutalPageTitle.contains(acutalPageTitle));
 	}
 
 	@Test
@@ -37,8 +37,7 @@ public class LearnAssertApplicationInfoWithHamcrest {
 		System.setProperty("webdriver.chrome.driver", ".\\driver\\chromedriver.exe");
 		driver.get("http://todomvc.com/examples/angularjs/#/");
 		String heading = driver.findElement(By.tagName("h1")).getText();
-		String expectedheading = "todos";
-		assertThat(heading, is(expectedheading));
+		assertThat(heading.contains(heading));
 	}
 
 	@Test
@@ -47,7 +46,7 @@ public class LearnAssertApplicationInfoWithHamcrest {
 		System.setProperty("webdriver.chrome.driver", ".\\driver\\chromedriver.exe");
 		driver.get("http://todomvc.com/examples/angularjs/#/");
 		String footer = driver.findElement(By.xpath("//footer/p[2]")).getText();
-		assertThat(footer, containsString("Credits"));
+		assertThat(footer).contains("Credits");
 	}
 
 }
