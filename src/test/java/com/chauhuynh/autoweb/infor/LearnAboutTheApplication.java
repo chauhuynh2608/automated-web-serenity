@@ -24,8 +24,6 @@ public class LearnAboutTheApplication {
 
 	@Test
 	public void checkCompareTitle() {
-
-		driver.get("http://todomvc.com/examples/angularjs/#/");
 		String acutalPageTitle = driver.getTitle();
 		String expectedPageTitle = "AngularJS • TodoMVC";
 		Assert.assertEquals(acutalPageTitle, expectedPageTitle);
@@ -47,7 +45,6 @@ public class LearnAboutTheApplication {
 
 	@Test
 	public void checkFooter1() {
-		driver.get("http://todomvc.com/examples/angularjs/#/");
 		String footer = driver.findElement(By.xpath("//footer/p[2]")).getText();
 		Assert.assertTrue(footer.contains("Credits"));
 	}

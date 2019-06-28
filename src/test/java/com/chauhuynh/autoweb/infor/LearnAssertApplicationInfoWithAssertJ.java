@@ -27,21 +27,18 @@ public class LearnAssertApplicationInfoWithAssertJ {
 
 	@Test
 	public void checkCompareTitle() {
-		driver.get("http://todomvc.com/examples/angularjs/#/");
 		String acutalPageTitle = driver.getTitle();
 		assertThat(acutalPageTitle.contains(acutalPageTitle));
 	}
 
 	@Test
 	public void checkHeading() {
-		driver.get("http://todomvc.com/examples/angularjs/#/");
 		String heading = driver.findElement(By.tagName("h1")).getText();
 		assertThat(heading.contains(heading));
 	}
 
 	@Test
 	public void checkFooter() {
-		driver.get("http://todomvc.com/examples/angularjs/#/");
 		String footer = driver.findElement(By.xpath("//footer/p[2]")).getText();
 		assertThat(footer).contains("Credits");
 	}
