@@ -13,7 +13,7 @@ import net.thucydides.core.annotations.Managed;
 @RunWith(SerenityRunner.class)
 public class LearnAboutTheApplication {
 
-	@Managed(driver = "chrome")
+	@Managed
 	public WebDriver driver;
 
 	@Test
