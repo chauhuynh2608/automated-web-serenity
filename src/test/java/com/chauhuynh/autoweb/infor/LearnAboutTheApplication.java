@@ -1,26 +1,10 @@
 package com.chauhuynh.autoweb.infor;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-import net.serenitybdd.junit.runners.SerenityRunner;
-import net.thucydides.core.annotations.Managed;
-
-@RunWith(SerenityRunner.class)
-public class LearnAboutTheApplication {
-
-	@Managed
-	public WebDriver driver;
-
-	@Before
-	public void setup() {
-		driver.get("http://todomvc.com/examples/angularjs/#/");
-	}
+public class LearnAboutTheApplication extends BasePageWebDriver {
 
 	@Test
 	public void checkCompareTitle() {

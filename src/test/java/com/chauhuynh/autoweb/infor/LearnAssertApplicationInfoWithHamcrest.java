@@ -1,32 +1,12 @@
 package com.chauhuynh.autoweb.infor;
 
-import org.junit.Assert;
-import org.junit.Before;
-
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-
-import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.collection.IsIterableContainingInOrder.contains;
 import static org.hamcrest.core.Is.is;
-import static org.hamcrest.core.IsCollectionContaining.hasItems;
 
-import net.serenitybdd.junit.runners.SerenityRunner;
-import net.thucydides.core.annotations.Managed;
-
-@RunWith(SerenityRunner.class)
-public class LearnAssertApplicationInfoWithHamcrest {
-	@Managed
-	public WebDriver driver;
-
-	@Before
-	public void setup() {
-		driver.get("http://todomvc.com/examples/angularjs/#/");
-	}
+public class LearnAssertApplicationInfoWithHamcrest extends BasePageWebDriver {
 
 	@Test
 	public void checkCompareTitle() {
@@ -48,4 +28,10 @@ public class LearnAssertApplicationInfoWithHamcrest {
 		assertThat(footer, containsString("Credits"));
 	}
 
+	@Test
+	public void checkInputField() {
+
+		String inputField = driver.findElement(By.tagName("input")).getAttribute("placeholder");
+		assertThat(inputField, containsString("What needs to be done?"));
+	}
 }
