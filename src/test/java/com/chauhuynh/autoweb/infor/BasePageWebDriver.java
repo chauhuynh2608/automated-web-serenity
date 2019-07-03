@@ -10,7 +10,7 @@ import net.thucydides.core.annotations.Managed;
 
 @RunWith(SerenityRunner.class)
 public class BasePageWebDriver {
-	
+
 	@Managed
 	public WebDriver driver;
 
