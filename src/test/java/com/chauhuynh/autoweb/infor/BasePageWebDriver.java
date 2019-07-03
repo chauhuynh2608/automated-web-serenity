@@ -13,17 +13,16 @@ import net.thucydides.core.annotations.Managed;
 public class BasePageWebDriver {
 	@Managed
 	public WebDriver driver;
-	
 
 	public BasePageWebDriver() {
 		super();
 	}
-	
+
 	@BeforeTest
-	 public void setUp(){		
+	public void setUp() {
 		driver = new ChromeDriver();
-		driver.get("http://todomvc.com/examples/angularjs/#/");
 	}
+
 	@Before
 	public void setup() {
 		driver.get("http://todomvc.com/examples/angularjs/#/");
@@ -33,6 +32,7 @@ public class BasePageWebDriver {
 	public void afterTest() {
 		driver.quit();
 	}
+
 	public void sleep(int seconds) {
 		try {
 			Thread.sleep(seconds * 1000);
@@ -40,5 +40,5 @@ public class BasePageWebDriver {
 			e.printStackTrace();
 		}
 	}
-	
+
 }
