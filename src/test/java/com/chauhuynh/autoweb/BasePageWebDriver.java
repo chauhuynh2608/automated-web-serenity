@@ -74,10 +74,15 @@ public class BasePageWebDriver {
 
 	public void mouseHover(String xpathValue) {
 		Actions action = new Actions(driver);
-
 		action.moveToElement(findByXpath(xpathValue)).build().perform();
 	}
-
+	public void mouseHoverLazada(String css) {
+		Actions action = new Actions(driver);
+		action.moveToElement(findByCSS(css)).build().perform();
+	}
+	public void typeTextByCSS(String css, String value) {
+		findByCSS(css).sendKeys(value);
+	}
 	public WebElement find(By by) {
 		return driver.findElement(by);
 	}
@@ -88,6 +93,9 @@ public class BasePageWebDriver {
 
 	public WebElement findById(String id) {
 		return find(By.id(id));
+	}
+	public void clickOnElementfindByCSS(String css) {
+		findByCSS(css).click();
 	}
 
 	public void clickOnElementByXpath(String xpathValue) {
@@ -130,7 +138,7 @@ public class BasePageWebDriver {
 
 	@After
 	public void afterTest() {
-		driver.quit();
+		///driver.quit();
 	}
 
 	public void sleep(int seconds) {

@@ -15,19 +15,14 @@ public class WhenUserLoginTikiTest extends BasePageWebDriver {
 		// waitForElementPresent("//button[text()='Đăng nhập']", 10);
 		sleep(2);
 		clickOnElementByXpath("//button[text()='Đăng nhập']");
-
 		waitForElementPresent("onesignal-popover-cancel-button", 10);
 		clickOnElementByID("onesignal-popover-cancel-button");
 		typeTextByID("email", "chauhuynh@tiki.com");
 		typeTextByID("password", "chauhuynh@tiki.com");
-
 		clickOnElementByXpath("//button[text()='Đăng nhập' and starts-with(@class,'UserModalstyle')]");
 		waitForTextPresent("//div[starts-with(@class,'InputError')]", "Thông tin đăng nhập không đúng", 10);
-
 		String errMsg = getTextByXpath("//div[starts-with(@class,'InputError')]");
-
 		assertThat(errMsg).isEqualTo("Thông tin đăng nhập không đúng");
-
 		sleep(3);
 	}
 
