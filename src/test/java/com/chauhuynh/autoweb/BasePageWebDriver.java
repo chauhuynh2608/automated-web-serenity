@@ -87,7 +87,7 @@ public class BasePageWebDriver {
 	
 	public void mouseAct(String xpathValue) {
 		Actions act = new Actions(driver);
-		act.moveToElement(findByXpath(xpathValue)).build().perform();
+		act.moveToElement(findByXpath(xpathValue)).release().perform();
 	}
 	
 	public void typeTextByCSS(String css, String value) {
