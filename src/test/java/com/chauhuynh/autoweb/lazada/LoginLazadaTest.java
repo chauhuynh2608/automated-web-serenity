@@ -12,10 +12,8 @@ public void user_login_system_Lazada() {
 	clickOnElementByID("anonLogin");
 	typeTextByCSS("div.mod-input-loginName input", "ctthuynh26@gmail.com");
 	typeTextByCSS("div.mod-input-password input", "270776*nnD");
-	clickAndHold(".//*[@id='nc_2__bg']");
-	mouseAct(".//*[@id='nc_2_n1z']");
-	waitForElementPresent("@id='nc_2_n1z']", 10);
-	sleep(300);
+	//clickAndHold(".//*[@id='nc_2__bg']");
+	//mouseAct(".//*[@id='nc_2_n1z']");
 	clickOnElementfindByCSS("a[class=grey]");
 	}
 }

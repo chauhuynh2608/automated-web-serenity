@@ -4,6 +4,7 @@ import com.chauhuynh.autoweb.BasePageWebDriver;
 import org.junit.Test;
 import com.chauhuynh.autoweb.BasePageWebDriver;
 public class FunctionAccepSwitchTest extends BasePageWebDriver{
+	@Test
 	public void function_accep_swith() {
 		clickOnElementByXpath("//a[@title='Change Orientation']");
 		switchToFrame("iframeResult");

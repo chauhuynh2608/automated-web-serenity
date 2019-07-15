@@ -151,7 +151,7 @@ public class BasePageWebDriver {
 
 	@After
 	public void afterTest() {
-		///driver.quit();
+		driver.quit();
 	}
 
 	public void sleep(int seconds) {
