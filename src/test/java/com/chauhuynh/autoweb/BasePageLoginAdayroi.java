@@ -40,7 +40,18 @@ public class BasePageLoginAdayroi {
 		//get value properties ở file serenity(6)
 		driver.get(baseUrl);
 	}
-	
+	public void scrolDown() {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		// This will scroll down the page by 1000 pixel vertical
+		js.executeScript("window.scrollBy(0,1000)");
+	}
+	public void goBack() {
+		driver.navigate().back();
+	}
+	public void goForward() {
+		driver.navigate().forward();
+	}
+
 	public WebElement findByXpath(String xpathValue) {
 		return find(By.xpath(xpathValue));
 	}
@@ -64,6 +75,10 @@ public class BasePageLoginAdayroi {
 	public String getTextCss(String cssValue) {
 		return findByCSS(cssValue).getText();
 	}
+	public void refresh() {
+		driver.navigate().refresh();
+	}
+	//wait until an element is present
 	public void waitForTextPresent(String locator, String text, int timeoutInSeconds) {
 		WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
 		wait.until(ExpectedConditions.textToBePresentInElement(findByCSS(locator), text));

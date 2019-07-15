@@ -10,9 +10,17 @@ public class WhenUserLoginTikiTest extends BasePageWebDriver {
 
 	@Test
 	public void user_login_system_tiki() {
-
 		mouseHover("//span[text()='Đăng nhập']");
-		// waitForElementPresent("//button[text()='Đăng nhập']", 10);
+		sleep(2);
+		clickOnElementByXpath("//button[text()='Đăng nhập']");
+		waitForElementPresent("onesignal-popover-cancel-button", 10);
+		clickOnElementByID("onesignal-popover-cancel-button");
+		typeTextByID("email", "chauhuynh@tiki.com");
+	}
+
+	@Test
+	public void user_login_fail_tiki() {
+		mouseHover("//span[text()='Đăng nhập']");
 		sleep(2);
 		clickOnElementByXpath("//button[text()='Đăng nhập']");
 		waitForElementPresent("onesignal-popover-cancel-button", 10);

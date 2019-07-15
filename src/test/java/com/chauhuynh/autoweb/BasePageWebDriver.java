@@ -39,7 +39,6 @@ public class BasePageWebDriver {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get(baseUrl);
-
 	}
 
 	public void goBack() {
@@ -80,6 +79,17 @@ public class BasePageWebDriver {
 		Actions action = new Actions(driver);
 		action.moveToElement(findByCSS(css)).build().perform();
 	}
+	public void clickAndHold(String xpathValue) {
+		Actions act = new Actions(driver);
+		act.clickAndHold(findByXpath(xpathValue)).pause(2000);
+			 
+	}
+	
+	public void mouseAct(String xpathValue) {
+		Actions act = new Actions(driver);
+		act.moveToElement(findByXpath(xpathValue)).build().perform();
+	}
+	
 	public void typeTextByCSS(String css, String value) {
 		findByCSS(css).sendKeys(value);
 	}
@@ -125,6 +135,9 @@ public class BasePageWebDriver {
 	}
 
 	public String getTextByXpath(String xpathValue) {
+		return findByXpath(xpathValue).getText();
+	}
+	public String getLocationByXpath(String xpathValue) {
 		return findByXpath(xpathValue).getText();
 	}
 

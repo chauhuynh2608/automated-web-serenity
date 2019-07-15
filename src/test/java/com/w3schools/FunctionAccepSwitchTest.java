@@ -1,11 +1,10 @@
-package com.chauhuynh.autoweb.alert;
+package com.w3schools;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import com.chauhuynh.autoweb.BasePageWebDriver;
 import org.junit.Test;
 import com.chauhuynh.autoweb.BasePageWebDriver;
-public class WhenUserAcceptAlertTest extends BasePageWebDriver {
-	@Test
-	public void user_accept_alert_popup() {
+public class FunctionAccepSwitchTest extends BasePageWebDriver{
+	public void function_accep_swith() {
 		clickOnElementByXpath("//a[@title='Change Orientation']");
 		switchToFrame("iframeResult");
 		sleep(3);
